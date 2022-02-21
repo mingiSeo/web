@@ -16,6 +16,7 @@ import javax.inject.Inject;
 @Controller
 @RequestMapping("/article")
 public class ArticleController {
+
     private static final Logger logger = LoggerFactory.getLogger(ArticleController.class);
 
     private final ArticleService articleService;
@@ -24,6 +25,7 @@ public class ArticleController {
     public ArticleController(ArticleService articleService) {
         this.articleService = articleService;
     }
+
 
     // 등록 페이지 이동
     @RequestMapping(value = "/write", method = RequestMethod.GET)

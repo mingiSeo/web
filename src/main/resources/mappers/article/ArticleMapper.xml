@@ -2,15 +2,34 @@
 <!DOCTYPE mapper   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.web.mvcboard.mappers.article.ArticleMapper">
 
-    <insert id="create">
-        INSERT INTO tbl_article ( title
+    <insert id="create" parameterType="com.web.mvcboard.article.domain.ArticleVO" useGeneratedKeys="true" keyProperty="articleNo">
+        INSERT INTO tbl_article (
+                                  article_no
+                                , title
                                 , content
-                                , writer)
-        VALUES ( #{title}
-               , #{content}
-               , #{writer})
+                                , writer
+                                , regdate
+                                , viewcnt
+        ) VALUES (
+                     #{articleNo}
+                 , #{title}
+                 , #{content}
+                 , #{writer}
+                 , #{regDate}
+                 , #{viewCnt}
+                 )
     </insert>
-
+<!--    INSERT INTO tbl_article (
+    title
+    , content
+    , writer
+    , viewcnt
+    ) VALUES (
+    #{title}
+    , #{content}
+    , #{writer}
+    , #{viewCnt}
+    )-->
     <select id="read" resultMap="ArticleResultMap">
         SELECT article_no
              , title

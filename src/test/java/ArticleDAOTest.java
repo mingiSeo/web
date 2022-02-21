@@ -29,13 +29,13 @@ public class ArticleDAOTest {
 
     @Test
     public void testRead() throws Exception {
-        System.out.println(articleDAO.read(1).toString());
+        System.out.println(articleDAO.read(2).toString());
     }
 
     @Test
     public void testUpdate() throws Exception {
         ArticleVO article = new ArticleVO();
-        article.setArticleNo(1);
+        article.setArticleNo(2);
         article.setTitle("글 수정 테스트 제목");
         article.setContent("글 수정 테스트 내용");
         articleDAO.update(article);
@@ -43,6 +43,6 @@ public class ArticleDAOTest {
 
     @Test
     public void testDelete() throws Exception {
-        articleDAO.delete(3);
+        articleDAO.delete(1);
     }
 }
